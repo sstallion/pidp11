@@ -15,6 +15,9 @@ REALCONS_DIR=$(SRC)/REALCONS/
 DISPLAY=$(SRC)/display/
 
 BIN=$(SRC)/../bin-rpi/
+LIBGPIOD=$(SRC)/../rpi-build/libgpiod.a
+LIBI2CD=$(SRC)/../rpi-build/libi2cd.a
+LIBMCP23016=$(SRC)/../rpi-build/libmcp23016.a
 LIBPCAP=$(SRC)/../rpi-build/libpcap.a
 
 
@@ -39,7 +42,8 @@ PDP11 = ${PDP11D}/pdp11_fp.c ${PDP11D}/pdp11_cpu.c ${PDP11D}/pdp11_dz.c \
 	${PDP11D}/pdp11_ke.c ${PDP11D}/pdp11_dc.c ${PDP11D}/pdp11_dmc.c \
 	${PDP11D}/pdp11_kmc.c ${PDP11D}/pdp11_dup.c ${PDP11D}/pdp11_rs.c \
 	${PDP11D}/pdp11_vt.c ${PDP11D}/pdp11_td.c ${PDP11D}/pdp11_io_lib.c \
-	$(DISPLAY)/display.c $(DISPLAY)/sim_ws.c $(DISPLAY)/vt11.c
+	${PDP11D}/pdp11_gp.c \
+	$(DISPLAY)/display.c $(DISPLAY)/sim_ws.c $(DISPLAY)/vt11.c \
 
 REALCONS= \
         $(REALCONS_DIR)realcons.c     \
@@ -78,7 +82,7 @@ NETWORK_OPT = -DUSE_NETWORK -isystem $(SYSROOTS)/usr/local/include $(LIBPCAP) -D
 CC_DEFS =
 OS_CCDEFS = -D_GNU_SOURCE
 CC_DBG_FLAGS = -O2 -Wno-unused-result
-LDFLAGS = -lrt -lm  -lpthread -ldl -lreadline
+LDFLAGS = $(LIBMCP23016) $(LIBI2CD) $(LIBGPIOD) -lrt -lm  -lpthread -ldl -lreadline
 CC = gcc -std=c99 -U__STRICT_ANSI__  $(CC_DEFS) $(OS_CCDEFS) -I $(SRC) $(CC_DBG_FLAGS) -UUSE_REALCONS
 CC_OUTSPEC = -o $@
 
