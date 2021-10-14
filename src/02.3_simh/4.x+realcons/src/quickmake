@@ -111,9 +111,8 @@ ALL = pdp11
 all : pdp11_realcons
 
 clean :
-	if exist BIN\*.exe del /q BIN\*.exe
-	if exist BIN rmdir BIN
-#	rm -f $(OBJS)
+	rm -f $(OBJS)
+	rm -rf $(BIN)pdp11_realcons
 
 pdp11_realcons : ${BIN}pdp11_realcons${EXE}
 
