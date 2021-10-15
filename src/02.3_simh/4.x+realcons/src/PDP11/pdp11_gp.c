@@ -28,7 +28,7 @@
    12-Oct-21    SES     Initial implementation
 
    The general-purpose I/O (GP) device bridges one or more MCP23016-based I/O
-   expanders to connect SimH to the outside world. The programming interface
+   expanders to connect SIMH to the outside world. The programming interface
    matches that of the MCP23016 with the addition of a CSR to manage interrupts.
    Up to 8 units may be attached with the unit number corresponding to the
    position of the I/O expander on the I2C bus.
@@ -380,7 +380,7 @@ t_stat gp_help (FILE *st, DEVICE *dptr, UNIT *uptr, int32 flag, const char *cptr
 {
 fprintf (st, "GP11 General-Purpose I/O (GP)\n\n");
 fprintf (st, "The general-purpose I/O (GP) device bridges one or more MCP23016-based I/O\n");
-fprintf (st, "expanders to connect SimH to the outside world. The programming interface\n");
+fprintf (st, "expanders to connect SIMH to the outside world. The programming interface\n");
 fprintf (st, "matches that of the MCP23016 with the addition of a CSR to manage interrupts.\n");
 fprintf (st, "Up to 8 units may be attached with the unit number corresponding to the\n");
 fprintf (st, "position of the I/O expander on the I2C bus.\n\n");
