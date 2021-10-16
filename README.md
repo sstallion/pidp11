@@ -121,7 +121,7 @@ The above procedure can also be accomplished using the SIMH console:
 
 ## Contributing
 
-Pull requests are welcome! If a problem is encountered using this software,
+Pull requests are welcome! If a problem is encountered using this repository,
 please file an issue on [GitHub][8].
 
 ## License
